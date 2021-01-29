@@ -4,13 +4,12 @@ public class ContaEmpresa {
 
 	public static void main(String[] args) {
 		double saldo = 0.00;
-		String resp;
 		int opcao;
 		Scanner scan = new Scanner (System.in);	
 		DesafioBanco menu = new DesafioBanco();
 		
-		System.out.println("CONTA EMPRESARIAL\nBem vindo!!!!\n\n");
-		System.out.printf("Saldo atual: R$ %f \n\n",saldo);
+		System.out.println("CONTA EMPRESARIAL\nBem vindo!\n");
+		System.out.printf("Saldo atual: R$ %f \n\n", saldo);
 		
 		System.out.println("OPÇÕES DISPONIVEIS: ");
 		System.out.println("1 - Emprestimo");
@@ -22,7 +21,7 @@ public class ContaEmpresa {
 		
 		switch(opcao) {
 		case 1:
-			getEmprestimo(saldo);
+			saldo = getEmprestimo(saldo);
 			break;
 		case 2:
 			debitar(saldo);
@@ -45,37 +44,29 @@ public class ContaEmpresa {
 	// FUNÇÃO EMPRESTIMO
 	public static double getEmprestimo(double saldo) {
 		double valorEmprestimo, emprestimoDisponivel = 10000.00, valor;
-		String resp;
-		Scanner scan = new Scanner (System.in);		
-		System.out.println("\n\nMENU DE EMPRESTIMO\n\n");
-		System.out.println("\nDeseja fazer um emprestimo S/N: ");
-		resp = scan.next();
+		Scanner scan = new Scanner (System.in);	
 		
-		if (resp=="S" || resp =="s") {
+		
+		System.out.println("\nMENU DE EMPRESTIMO\n");
+		System.out.println("Deseja fazer um emprestimo S/N: ");
+		char resp = scan.next().charAt(0);
+		
+		if (resp=='S' || resp =='s') {
 			do {
 				System.out.println("Insira o valor do empréstimo [Até R$ 10.000]: ");
 				valorEmprestimo = scan.nextDouble();
 				if (valorEmprestimo <= emprestimoDisponivel) {
-					valor = emprestimoDisponivel - valorEmprestimo;
-					saldo += valor;
+					saldo += valorEmprestimo;
 				}
 			} while (valorEmprestimo > emprestimoDisponivel);
 				
 			System.out.printf("\nO novo saldo é de: R$ %f", saldo);
 			
 			System.out.println("\n\nDeseja voltar ao menu anterior S/N? ");
-			resp = scan.next();
-			if (resp=="S" || resp =="s") {
-				
-			}else {
-				System.exit(0);
-			}
-		}
-		else {
-			System.out.println("\n\nDeseja voltar ao menu de contas S/N? ");
-			resp = scan.next();
-			if (resp=="S" || resp =="s") {
-				
+			resp = scan.next().charAt(0);
+
+			if (resp=='S' || resp =='s') {
+				ContaEmpresa.main(null);
 			}else {
 				System.exit(0);
 			}
