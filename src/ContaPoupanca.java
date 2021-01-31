@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ContaEmpresa {
+public class ContaPoupanca {
 
 	// Declaração de atributos
 	private double saldo;
@@ -10,12 +10,12 @@ public class ContaEmpresa {
 	private List<Extrato> extrato = new ArrayList<Extrato>();
 
 	// Função construtor
-	public ContaEmpresa() { 
+	public ContaPoupanca() { 
 		this.setSaldo(0);
 		this.setEmprestimoDisponivel(10000);
 	}
 
-	public ContaEmpresa(double saldo, double emprestimoDisponivel) {
+	public ContaPoupanca(double saldo, double emprestimoDisponivel) {
 		this.setSaldo(saldo);
 		this.setEmprestimoDisponivel(emprestimoDisponivel);
 	}
@@ -39,22 +39,19 @@ public class ContaEmpresa {
 	}
 	
 	 // Extrato
-	public List<Extrato> getExtrato(){
-		return this.extrato;
-	}
-	
-	public void setExtrato(Extrato itemExtrato){
-		this.extrato.add(itemExtrato);
-	}
+		public List<Extrato> getExtrato(){
+			return this.extrato;
+		}
+		
+		public void setExtrato(Extrato itemExtrato){
+			this.extrato.add(itemExtrato);
+		}
 
 	// --------------------------------------------------------------------------
 	// FUNÇÃO EMPRESTIMO
-	public void emprestimo() {
+	public void getEmprestimo() {
 		double valorEmprestimo = 0.00;
 		boolean isValid;
-		
-		String descricao;
-		String transacao = "Emprestimo";
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("**********************************************");
@@ -73,15 +70,7 @@ public class ContaEmpresa {
 					} else {
 						this.saldo += valorEmprestimo;
 						this.emprestimoDisponivel -= valorEmprestimo;
-						System.out.println("Digite A descrição da solicitação: ");
-						descricao = scan.nextLine();
-						
-						Extrato itemExtrato = new Extrato(); 
-						itemExtrato.setValor(valorEmprestimo);
-						itemExtrato.setTransacao(transacao);
-						itemExtrato.setDescricao(descricao);
-						
-						this.setExtrato(itemExtrato);
+		
 					}
 
 				} else {
@@ -90,7 +79,6 @@ public class ContaEmpresa {
 				}
 
 			} while (isValid == false);		
-			
 	}
 	// --------------------------------------------------------------------------------
 
@@ -128,7 +116,6 @@ public class ContaEmpresa {
 				
 		} while (debito > this.saldo);
 		
-		
 	}
 	// --------------------------------------------------------------------------------
 
@@ -157,8 +144,6 @@ public class ContaEmpresa {
 		
 		this.setExtrato(itemExtrato);
 
-		// addExtrato(descricao, saldo);
-
 	}
 
 	// --------------------------------------------------------------------------------
@@ -169,7 +154,7 @@ public class ContaEmpresa {
 		 System.out.println ("\n**********************************************");
 		 System.out.println ("Extrato da Conta Empresa\n");
 		for (Extrato obj : this.extrato) {
-		    System.out.printf ("Data: %s\t Transação: %s\t Descrição: %s\t Valor: %.2f " , obj.getData() ,  obj.getTransacao() , obj.getDescricao() , obj.getValor());
+		    System.out.printf ("\nData: %s\t Transação: %s\t Descrição: %s\t Valor: %.2f " , obj.getData() ,  obj.getTransacao() , obj.getDescricao() , obj.getValor());
 		}
 	}
 
