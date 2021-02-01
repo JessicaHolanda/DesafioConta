@@ -155,8 +155,6 @@ public class ContaEstudante {
 		
 		this.setExtrato(itemExtrato);
 
-		// addExtrato(descricao, saldo);
-
 	}
 
 	// --------------------------------------------------------------------------------

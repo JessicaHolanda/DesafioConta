@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Extrato {
 	
+	//atributos
 	private String data; 
 	private String descricao;
 	private String transacao;
@@ -20,6 +21,7 @@ public class Extrato {
 	}
 	
 	// Getters and setters
+	
 	public String getData() {
 		return this.data;
 	}

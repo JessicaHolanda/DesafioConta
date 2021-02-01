@@ -154,8 +154,6 @@ public class ContaCorrente {
 		
 		this.setExtrato(itemExtrato);
 
-		// addExtrato(descricao, saldo);
-
 	}
 
 	// --------------------------------------------------------------------------------
@@ -166,7 +164,7 @@ public class ContaCorrente {
 		 System.out.println ("\n**********************************************");
 		 System.out.println ("\tExtrato da Conta Empresa\n");
 		for (Extrato obj : this.extrato) {
-		    System.out.println ("\nData: %s\t Transação: %s\t Descrição: %s\t Valor: %.2f " + obj.getData() +  obj.getTransacao() + obj.getDescricao() + obj.getValor());
+		    System.out.printf ("\nData: %s\t Transação: %s\t Descrição: %s\t Valor: %.2f " , obj.getData() ,  obj.getTransacao() , obj.getDescricao() , obj.getValor());
 		}
 	}
 

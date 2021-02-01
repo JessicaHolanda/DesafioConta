@@ -218,7 +218,7 @@ public class DesafioBanco {
 			// this.menu.main();
 			break;
 		case 5:
-			// getExtrato();
+			contaEspecial.showExtrato();
 			break;
 		case 6:
 			System.exit(0);
@@ -306,7 +306,7 @@ public class DesafioBanco {
 			// this.menu.main();
 			break;
 		case 5:
-			// getExtrato();
+			contaEstudante.showExtrato();
 			break;
 		case 6:
 			System.exit(0);
@@ -393,7 +393,7 @@ public class DesafioBanco {
 			// this.menu.main();
 			break;
 		case 5:
-			// getExtrato();
+			contaCorrente.showExtrato();
 			break;
 		case 6:
 			System.exit(0);
